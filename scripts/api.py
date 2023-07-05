@@ -46,6 +46,6 @@ def api_call(latitude, longitude, api_key, service_account):
         blob = bucket.blob(image_path)
         blob.upload_from_string(response.content, content_type='image/jpeg')
         print("Image saved succesfully in Google Storage")
-        time.sleep(1)
+        # time.sleep(1)
     else:
         print ("Error: Unable to fetch the street view image.")

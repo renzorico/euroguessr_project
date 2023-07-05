@@ -1,7 +1,7 @@
 import os
 from coordinates import read_coordinates_from_file
 from api import api_call
-from google.cloud import storage
+# from google.cloud import storage
 from dotenv import load_dotenv
 
 # Set your API key
@@ -21,7 +21,7 @@ if os.path.isfile(coordinates_done_file):
 else:
     coordinates_done = []
 
-for i, coord in enumerate(coordinates[:15]):
+for i, coord in enumerate(coordinates[:]):
     if coord in coordinates_done:
         print('Already in GCS')
     else:
