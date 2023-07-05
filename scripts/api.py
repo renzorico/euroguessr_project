@@ -10,7 +10,8 @@ api_key = os.getenv('API_KEY')
 service_account = os.getenv('SERVICE_ACCOUNT')
 
 # Set the location parameters
-latitude, longitude = generate_random_coordinates()
+latitude, longitude = 40.300000000000075,-3.700000000000021
+
 # Set the desired image size
 image_width = 640
 image_height = 480
