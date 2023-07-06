@@ -1,5 +1,6 @@
 import requests
 import os
+import time
 from google.cloud import storage
 from dotenv import load_dotenv
 
@@ -9,7 +10,6 @@ api_key = os.getenv('API_KEY')
 service_account = os.getenv('SERVICE_ACCOUNT')
 
 def api_call(latitude, longitude, api_key, service_account):
-    
     # Set the desired image size
     image_width = 640
     image_height = 480
@@ -28,7 +28,6 @@ def api_call(latitude, longitude, api_key, service_account):
 
     # Concatenate latitude, longitude, and file extension
     filename = f"{lat_str}_{lon_str}.jpg"
-
     # Send the request and receive the response
     response = requests.get(url)
 
@@ -47,5 +46,6 @@ def api_call(latitude, longitude, api_key, service_account):
         blob = bucket.blob(image_path)
         blob.upload_from_string(response.content, content_type='image/jpeg')
         print("Image saved succesfully in Google Storage")
+        # time.sleep(1)
     else:
         print ("Error: Unable to fetch the street view image.")
