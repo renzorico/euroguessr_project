@@ -1,7 +1,6 @@
 import os
 from coordinates import read_coordinates_from_file
 from api import api_call
-# from google.cloud import storage
 from dotenv import load_dotenv
 
 # Set your API key

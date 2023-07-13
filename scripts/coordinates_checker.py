@@ -1,11 +1,12 @@
 import requests
-import random
 from dotenv import load_dotenv
 import os
+import requests
 
 load_dotenv('.env')
 
-import requests
+# First step: Check all the coordinates that have images available in Google Street View API in the specific polygon ((lat_start, lat_end),(lng_start, lng_end)).
+# Second step: Saved those (OK) sets of coordinates in a file called 'barcelona_coordinates2.txt'.
 
 def save_coordinates_to_file(coordinates, filename):
     with open(filename, 'w') as file:
@@ -57,4 +58,5 @@ barcelona_coordinates = get_available_coordinates('Barcelona')
 
 # Print the number of coordinates found
 print(f'Number of available coordinates: {len(barcelona_coordinates)}')
+
 save_coordinates_to_file(barcelona_coordinates, 'barcelona_coordinates2.txt')

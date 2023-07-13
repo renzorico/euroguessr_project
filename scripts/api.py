@@ -1,8 +1,12 @@
 import requests
 import os
-import time
 from google.cloud import storage
 from dotenv import load_dotenv
+
+# Third step: Called GSV API to bring the correspondant images for every coordinate, storaged the images in a 'lat_lon.jpeg' format name in a 'coordinates_done.txt' file.
+# In case there is an error downloading the images, when the process starts again, it will check if the coordinates of the image already exists in the coordinates_done.txt file so it doesn't bring the same image twice.
+
+
 
 # Set your API key
 load_dotenv('.env')
@@ -46,6 +50,5 @@ def api_call(latitude, longitude, api_key, service_account):
         blob = bucket.blob(image_path)
         blob.upload_from_string(response.content, content_type='image/jpeg')
         print("Image saved succesfully in Google Storage")
-        # time.sleep(1)
     else:
         print ("Error: Unable to fetch the street view image.")
