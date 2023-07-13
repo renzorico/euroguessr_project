@@ -11,8 +11,8 @@ service_account = os.getenv('SERVICE_ACCOUNT')
 
 def api_call(latitude, longitude, api_key, service_account):
     # Set the desired image size
-    image_width = 640
     image_height = 480
+    image_width = 640
 
     # Set the heading, pitch, and fov parameters
     heading = 90
