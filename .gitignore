@@ -4,3 +4,5 @@ raw_data/
 notebooks/
 models/
 image_to_pred/
+
+*.pkl
