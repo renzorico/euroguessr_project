@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 # Third step: Called GSV API to bring the correspondant images for every coordinate, storaged the images in a 'lat_lon.jpeg' format name in a 'coordinates_done.txt' file.
 # In case there is an error downloading the images, when the process starts again, it will check if the coordinates of the image already exists in the coordinates_done.txt file so it doesn't bring the same image twice.
 
-
-
 # Set your API key
 load_dotenv('.env')
 api_key = os.getenv('API_KEY')
