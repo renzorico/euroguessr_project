@@ -1,8 +1,10 @@
 import os
-from coordinates import read_coordinates_from_file
+from scripts.coordinates_reader import read_coordinates_from_file
 from api import api_call
-# from google.cloud import storage
 from dotenv import load_dotenv
+
+# Fourth step: 
+
 
 # Set your API key
 load_dotenv('.env')
