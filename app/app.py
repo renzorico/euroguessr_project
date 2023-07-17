@@ -2,10 +2,9 @@ import streamlit as st
 import folium
 import os
 from streamlit_folium import folium_static
-from google.cloud import storage
 from streamlit import secrets
+from google.cloud import storage
 
-secrets = st.secrets["env"]
 api_key = secrets["API_KEY"]
 service_account = secrets["SERVICE_ACCOUNT"]
 bucket_name = secrets["BUCKET_NAME"]
@@ -20,13 +19,13 @@ def display_image_from_gcs(bucket_name, filename):
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(filename)
-    image = blob.download_as_text()
-    st.image(image)
+    image_bytes = blob.download_as_bytes()
+    st.image(image_bytes)
 
 def create_map_with_marker(latitude, longitude):
-    m = folium.Map(location=[latitude, longitude], zoom_start=12)
-    folium.Marker([latitude, longitude]).add_to(m)
-    return m
+    marker = folium.Map(location=[latitude, longitude], zoom_start=12)
+    folium.Marker([latitude, longitude]).add_to(marker)
+    return marker
 
 def main():
     # Specify your GCS bucket name
