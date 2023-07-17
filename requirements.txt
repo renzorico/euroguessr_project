@@ -6,3 +6,5 @@ langchain>=0.0.217
 openai
 duckduckgo-search
 anthropic
+folium
+pip
