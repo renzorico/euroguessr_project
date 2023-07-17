@@ -4,7 +4,7 @@ from api import api_call
 from dotenv import load_dotenv
 
 # Set your API key
-load_dotenv('.env')
+load_dotenv('../.env')
 api_key = os.getenv('API_KEY')
 service_account = os.getenv('SERVICE_ACCOUNT')
 file_path = "barcelona_coordinates2.txt"
