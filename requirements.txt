@@ -6,5 +6,6 @@ langchain>=0.0.217
 openai
 duckduckgo-search
 anthropic
+streamlit_folium
 folium
 pip

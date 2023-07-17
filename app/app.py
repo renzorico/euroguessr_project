@@ -2,12 +2,11 @@ import streamlit as st
 import folium
 import os
 from streamlit_folium import folium_static
-from streamlit import secrets
 from google.cloud import storage
 
-api_key = secrets["API_KEY"]
-service_account = secrets["SERVICE_ACCOUNT"]
-bucket_name = secrets["BUCKET_NAME"]
+api_key = st.secrets["API_KEY"]
+service_account = st.secrets["SERVICE_ACCOUNT"]
+bucket_name = st.secrets["BUCKET_NAME"]
 
 def extract_coordinates_from_filename(filename):
     lat_lng = os.path.splitext(filename)[0].split("_")

@@ -6,3 +6,4 @@ models/
 image_to_pred/
 .streamlit/
 *.pkl
+gcp/
