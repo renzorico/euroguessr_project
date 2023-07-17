@@ -2,3 +2,7 @@ https://gist.githubusercontent.com/krokrob/53ab953bbec16c96b9938fcaebf2b199/raw/
 geopandas
 OrderedSet
 streamlit
+langchain>=0.0.217
+openai
+duckduckgo-search
+anthropic
