@@ -4,5 +4,6 @@ raw_data/
 notebooks/
 models/
 image_to_pred/
-
+gcp/
 *.pkl
+.streamlit/
