@@ -1,7 +1,14 @@
 import os
+<<<<<<< HEAD
 from coordinates_reader import read_coordinates_from_file
+=======
+from scripts.coordinates_reader import read_coordinates_from_file
+>>>>>>> f47731c6b25726a65c9c570ca7d5037e841d4d2e
 from api import api_call
 from dotenv import load_dotenv
+
+# Fourth step: 
+
 
 # Set your API key
 load_dotenv('../.env')
