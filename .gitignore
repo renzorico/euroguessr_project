@@ -4,12 +4,6 @@ raw_data/
 notebooks/
 models/
 image_to_pred/
-<<<<<<< HEAD
-.streamlit/
-*.pkl
-gcp/
-=======
 gcp/
 *.json
 *.pkl
->>>>>>> f47731c6b25726a65c9c570ca7d5037e841d4d2e
