@@ -7,3 +7,4 @@ image_to_pred/
 gcp/
 *.json
 *.pkl
+*.keras
