@@ -4,8 +4,9 @@ from google.cloud import storage
 from tensorflow.keras.utils import img_to_array
 from PIL import Image
 import io
+import glob
 
-def get_data_from_GCS(n_images):
+def get_data_from_GCS(n_images, image_size=(240, 320)):
     # Initialize Google Cloud Storage client
     client = storage.Client()
 
@@ -38,6 +39,9 @@ def get_data_from_GCS(n_images):
 
         # Open the image using PIL
         image = Image.open(io.BytesIO(image_data))
+        
+        # Resize the image to the desired size
+        image = image.resize(image_size)
 
         # Convert the image to a numpy array
         img_array = img_to_array(image)
@@ -52,17 +56,23 @@ def get_data_from_GCS(n_images):
         euro_dict['target'].append(target)
 
     # Save the dictionary as a pickle file
-    with open('100_euro_dict.pkl', 'wb') as file:    
+    with open(f'/mnt/mydisk/{n_images}_euro_dict.pkl', 'wb') as file:    
         pickle.dump(euro_dict, file)
 
 #Each time you run this code will create a new .pkl file with 100 random images from our GCS
-#get_data_from_GCS(100)
+#get_data_from_GCS(500)
 
-
-# Open the pickle file in read mode
 def get_sample_dict():
-    with open('100_euro_dict.pkl', 'rb') as file:
-        # Load the dictionary from the pickle file
-        euro_dict = pickle.load(file)
-        
-    return euro_dict
+    # Find the first pickle file in the current directory
+    pickle_files = glob.glob("/mnt/mydisk/*.pkl")
+    if len(pickle_files) > 0:
+        pickle_file = pickle_files[0]
+        # Open the pickle file in read mode
+        with open(pickle_file, 'rb') as file:
+            # Load the dictionary from the pickle file
+            euro_dict = pickle.load(file)
+        return euro_dict
+    else:
+        print("No pickle files found.")
+        return None
+    

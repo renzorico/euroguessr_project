@@ -1,4 +1,4 @@
-# Third Model, Using a Pretrained model ReNet50
+# Third Model, Using a Pretrained model ResNet50
 
 from utils import get_sample_dict
 import numpy as np
@@ -32,7 +32,7 @@ targets = np.array(targets)
 X_train, X_test, y_train, y_test = train_test_split(images, targets, test_size=0.2, random_state=42)
 
 # Load the ResNet50 model (excluding the top fully connected layers)
-base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(480, 640, 3))
+base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(320, 240, 3))
 
 # Freeze the layers in the base model
 for layer in base_model.layers:

@@ -5,4 +5,9 @@ notebooks/
 models/
 image_to_pred/
 
+bcn_guessr/models/
+bcn_guessr/data/dataAll/
+bcn_guessr/data/dataCombined/
+
+
 *.pkl
