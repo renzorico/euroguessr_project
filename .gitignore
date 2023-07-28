@@ -11,3 +11,4 @@ bcn_guessr/data/dataCombined/
 
 
 *.pkl
+*.keras
